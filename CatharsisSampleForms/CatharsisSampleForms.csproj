@@ -13,6 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.1" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="11.3.8" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Catharsis.Navigation.Forms\Catharsis.Navigation.Forms.csproj" />
