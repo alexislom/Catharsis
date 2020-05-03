@@ -12,7 +12,7 @@ namespace Catharsis.Navigation.Abstractions
         /// <summary>
         /// Gets the main thread scheduler for the <see cref="IView"/> instance.
         /// </summary>
-        //IScheduler MainThreadScheduler { get; }
+        IScheduler MainThreadScheduler { get; }
 
         /// <summary>
         /// Gets an observable notifying that a page was popped from the navigation stack.
@@ -37,6 +37,13 @@ namespace Catharsis.Navigation.Abstractions
         IObservable<Unit> PopPage(bool animate = true);
 
         /// <summary>
+        /// Pops the the root page.
+        /// </summary>
+        /// <param name="animate">if set to <c>true</c> [animate].</param>
+        /// <returns>An observable that signals when the pop has been completed.</returns>
+        IObservable<Unit> PopToRootPage(bool animate = true);
+
+        /// <summary>
         /// Pushes the modal onto the modal stack.
         /// </summary>
         /// <param name="modalViewModel">The modal view model.</param>
@@ -50,12 +57,5 @@ namespace Catharsis.Navigation.Abstractions
         /// </summary>
         /// <returns>A signal that signals when the pop has been completed.</returns>
         IObservable<Unit> PopModal();
-
-        /// <summary>
-        /// Pops the the root page.
-        /// </summary>
-        /// <param name="animate">if set to <c>true</c> [animate].</param>
-        /// <returns>An observable that signals when the pop has been completed.</returns>
-        IObservable<Unit> PopToRootPage(bool animate = true);
     }
 }

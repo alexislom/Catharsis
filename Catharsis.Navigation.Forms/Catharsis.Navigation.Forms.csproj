@@ -7,4 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Catharsis.Navigation\Catharsis.Navigation.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.6.0.726" />
+  </ItemGroup>
 </Project>
