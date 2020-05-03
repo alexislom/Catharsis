@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Catharsis.Core\Catharsis.Core.csproj" />
+    <Folder Include="Abstractions\" />
+    <Folder Include="Services\" />
+    <Folder Include="System\" />
+    <Folder Include="System\Reactive\" />
+    <Folder Include="System\Reactive\Linq\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />
+    <PackageReference Include="ReactiveUI" Version="11.3.8" />
   </ItemGroup>
 </Project>

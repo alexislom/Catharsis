@@ -1,8 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catharsis.Core", "Catharsis.Core\Catharsis.Core.csproj", "{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catharsis.Navigation", "Catharsis.Navigation\Catharsis.Navigation.csproj", "{E3DEFFCA-9B23-4187-B0C6-F71CFB58CBA7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catharsis.Navigation.Forms", "Catharsis.Navigation.Forms\Catharsis.Navigation.Forms.csproj", "{7472256D-DF16-4D70-BFA4-43C825580982}"
@@ -25,18 +23,6 @@ Global
 		Release|iPhone = Release|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Debug|anycpu.ActiveCfg = Debug|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Debug|anycpu.Build.0 = Debug|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Release|anycpu.ActiveCfg = Release|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Release|anycpu.Build.0 = Release|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{3983D661-8DC2-49AC-91D7-1F3DA4BD81E8}.Release|iPhone.Build.0 = Release|Any CPU
 		{E3DEFFCA-9B23-4187-B0C6-F71CFB58CBA7}.Debug|anycpu.ActiveCfg = Debug|Any CPU
 		{E3DEFFCA-9B23-4187-B0C6-F71CFB58CBA7}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{E3DEFFCA-9B23-4187-B0C6-F71CFB58CBA7}.Release|anycpu.ActiveCfg = Release|Any CPU
