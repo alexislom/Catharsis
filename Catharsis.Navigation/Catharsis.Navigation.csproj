@@ -10,6 +10,8 @@
     <Folder Include="System\" />
     <Folder Include="System\Reactive\" />
     <Folder Include="System\Reactive\Linq\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Mixins\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />

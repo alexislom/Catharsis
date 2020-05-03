@@ -18,4 +18,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Catharsis.Navigation.Forms\Catharsis.Navigation.Forms.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
 </Project>

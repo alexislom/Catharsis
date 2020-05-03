@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rxui:ReactiveContentPage
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:CatharsisSampleForms.ViewModels;assembly=CatharsisSampleForms"
+             x:TypeArguments="viewModels:MainViewModel"
+             mc:Ignorable="d"
+             x:Class="CatharsisSampleForms.Views.MainPage">
+    <StackLayout>
+        <Label Text="Label 1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label Text="Label 2" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Label Text="Label 3" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+    </StackLayout>
+</rxui:ReactiveContentPage>
