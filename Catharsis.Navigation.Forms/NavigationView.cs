@@ -15,7 +15,6 @@ namespace Catharsis.Navigation.Forms
     public class NavigationView : NavigationPage, IView
     {
         private readonly IScheduler _backgroundScheduler;
-        private readonly IScheduler _mainScheduler;
         private readonly IViewLocator _viewLocator;
 
         public IObservable<IViewModel> PagePopped { get; }
@@ -37,14 +36,20 @@ namespace Catharsis.Navigation.Forms
         /// <param name="viewLocator">The view locator which will find views associated with view models.</param>
         public NavigationView(IScheduler mainScheduler, IScheduler backgroundScheduler, IViewLocator viewLocator)
         {
+            MainThreadScheduler = mainScheduler;
             _backgroundScheduler = backgroundScheduler;
-            _mainScheduler = mainScheduler;
             _viewLocator = viewLocator;
 
             PagePopped = Observable
-                    .FromEventPattern<NavigationEventArgs>(x => Popped += x, x => Popped -= x)
-                    .Select(ep => ep.EventArgs.Page.BindingContext as IViewModel)
-                    .WhereNotNull();
+                    .FromEvent<EventHandler<NavigationEventArgs>, object>(
+                        handler =>
+                        {
+                            void Handler(object sender, NavigationEventArgs args) => handler(args.Page.BindingContext);
+                            return Handler;
+                        },
+                        x => Popped += x,
+                        x => Popped -= x)
+                    .Cast<IViewModel>();
         }
 
         /// <summary>
@@ -56,14 +61,20 @@ namespace Catharsis.Navigation.Forms
         /// <param name="rootPage">The starting root page.</param>
         public NavigationView(IScheduler mainScheduler, IScheduler backgroundScheduler, IViewLocator viewLocator, Page rootPage) : base(rootPage)
         {
+            MainThreadScheduler = mainScheduler;
             _backgroundScheduler = backgroundScheduler;
-            _mainScheduler = mainScheduler;
             _viewLocator = viewLocator;
 
             PagePopped = Observable
-                    .FromEventPattern<NavigationEventArgs>(x => Popped += x, x => Popped -= x)
-                    .Select(ep => ep.EventArgs.Page.BindingContext as IViewModel)
-                    .WhereNotNull();
+                    .FromEvent<EventHandler<NavigationEventArgs>, object>(
+                        handler =>
+                        {
+                            void Handler(object sender, NavigationEventArgs args) => handler(args.Page.BindingContext);
+                            return Handler;
+                        },
+                        x => Popped += x,
+                        x => Popped -= x)
+                    .Cast<IViewModel>();
         }
 
         public IObservable<Unit> PushPage(IViewModel viewModel, string contract, bool resetStack, bool animate = true)
@@ -109,7 +120,7 @@ namespace Catharsis.Navigation.Forms
                 .ToObservable()
                 .ToSignal()
                 // XF completes the pop operation on a background thread
-                .ObserveOn(_mainScheduler);
+                .ObserveOn(MainThreadScheduler);
         }
 
         public IObservable<Unit> PopToRootPage(bool animate = true)
@@ -119,7 +130,7 @@ namespace Catharsis.Navigation.Forms
                 .ToObservable()
                 .ToSignal()
                 // XF completes the pop operation on a background thread
-                .ObserveOn(_mainScheduler);
+                .ObserveOn(MainThreadScheduler);
         }
 
         public IObservable<Unit> PushModal(IViewModel modalViewModel, string contract, bool withNavigationPage = true)
@@ -153,7 +164,7 @@ namespace Catharsis.Navigation.Forms
                 .ToObservable()
                 .ToSignal()
                 // XF completes the pop operation on a background thread
-                .ObserveOn(_mainScheduler);
+                .ObserveOn(MainThreadScheduler);
         }
 
         private Page LocatePageFor(object viewModel, string contract)
