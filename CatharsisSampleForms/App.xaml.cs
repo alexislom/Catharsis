@@ -30,10 +30,6 @@ namespace CatharsisSampleForms
                 .RegisterView<RedPage, RedPageViewModel>()
                 .RegisterView<SecondModalView, SecondModalViewModel>();
 
-            //.RegisterView<GreenView, GreenViewModel>()
-            //.RegisterNavigationView(() => new BlueNavigationView())
-            //.RegisterViewModel(() => new GreenViewModel(Locator.Current.GetService<IViewStackService>()));
-
             //Push root page to navigation stack
             Locator
                 .Current
