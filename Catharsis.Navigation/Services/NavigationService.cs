@@ -5,6 +5,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using Catharsis.Navigation.Abstractions;
+using Catharsis.Navigation.Extensions;
 
 namespace Catharsis.Navigation.Services
 {
@@ -94,9 +95,19 @@ namespace Catharsis.Navigation.Services
         /// </summary>
         /// <param name="animate">if set to <c>true</c> [animate].</param>
         /// <returns></returns>
-        public IObservable<Unit> PopPage(bool animate = true) => View.PopPage(animate);
+        public IObservable<Unit> PopPage(bool animate = true)
+        {
+            var top = TopPage().Wait();
+            return View.PopPage(animate).Do(_ =>
+            {
+                top.InvokeViewModelAction<IDestructible>(x => x.Destroy());
+            });
+        }
 
-        public IObservable<Unit> PopToRootPage(bool animate = true) => View.PopToRootPage(animate).Do(_ => PopRootAndTick(_navigationSubject));
+        public IObservable<Unit> PopToRootPage(bool animate = true)
+        {
+            return View.PopToRootPage(animate).Do(_ => PopRootAndTick(_navigationSubject));
+        }
 
         public IObservable<Unit> PushModal(IViewModel modal, string contract = null, bool withNavigationPage = true)
         {
@@ -126,7 +137,15 @@ namespace Catharsis.Navigation.Services
         /// </summary>
         /// <param name="animate">if set to <c>true</c> [animate].</param>
         /// <returns>An observable that signals when the pop is complete.</returns>
-        public IObservable<Unit> PopModal(bool animate = true) => View.PopModal().Do(_ => PopStackAndTick(_modalSubject));
+        public IObservable<Unit> PopModal(bool animate = true)
+        {
+            return View.PopModal()
+                       .Do(_ =>
+                       {
+                           var modal = PopStackAndTick(_modalSubject);
+                           modal.InvokeViewModelAction<IDestructible>(x => x.Destroy());
+                       });
+        }
 
         /// <summary>
         /// Returns the top modal from the current modal stack.
@@ -217,6 +236,16 @@ namespace Catharsis.Navigation.Services
                    if (stack.Count > 1)
                    {
                        poppedStack = stack.RemoveRange(stack.IndexOf(stack[1]), stack.Count - 1);
+
+                       foreach (T popped in stack.RemoveRange(poppedStack).Reverse())
+                       {
+                           if (popped == null)
+                           {
+                               continue;
+                           }
+
+                           popped.InvokeViewModelAction<IDestructible>(x => x.Destroy());
+                       }
                    }
                    else
                    {
