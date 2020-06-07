@@ -14,7 +14,7 @@
     <Folder Include="Mixins\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />
-    <PackageReference Include="ReactiveUI" Version="11.3.8" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.7.1" />
+    <PackageReference Include="ReactiveUI" Version="11.4.1" />
   </ItemGroup>
 </Project>
