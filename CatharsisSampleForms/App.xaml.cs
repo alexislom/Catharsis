@@ -25,8 +25,8 @@ namespace CatharsisSampleForms
             //Register all views and view models
             Locator
                 .CurrentMutable
-                .RegisterView<MainPage, MainViewModel>();
-            //.RegisterView<FirstModalView, FirstModalViewModel>()
+                .RegisterView<MainPage, MainViewModel>()
+                .RegisterView<FirstModalView, FirstModalViewModel>();
             //.RegisterView<SecondModalView, SecondModalViewModel>()
             //.RegisterView<RedView, RedViewModel>()
             //.RegisterView<GreenView, GreenViewModel>()

@@ -6,5 +6,21 @@
              mc:Ignorable="d"
              x:Class="CatharsisSampleForms.App">
     <Application.Resources>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                    <Setter Property="BackgroundColor" Value="#E5E5E5" />
+                    <Setter Property="TextColor" Value="#ffffff" />
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="WidthRequest" Value="300"/>
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="BackgroundColor" Value="#2E7FA1"/>
+            <Setter Property="TextColor" Value="#ffffff"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
     </Application.Resources>
 </Application>

@@ -10,7 +10,7 @@
              mc:Ignorable="d"
              x:Class="CatharsisSampleForms.Views.MainPage">
     <StackLayout>
-        <Label Text="Label 1" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Button x:Name="FirstModalButton" Text="First Modal" />
         <Label Text="Label 2" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
         <Label Text="Label 3" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
     </StackLayout>
