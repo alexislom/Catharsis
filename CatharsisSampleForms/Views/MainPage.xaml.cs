@@ -15,7 +15,7 @@ namespace CatharsisSampleForms.Views
             this.WhenActivated(disposables =>
             {
                 this.BindCommand(ViewModel, x => x.OpenFirstModalPage, x => x.FirstModalButton).DisposeWith(disposables);
-                //this.BindCommand(ViewModel, x => x.PushPage, x => x.PushPage).DisposeWith(disposables);
+                this.BindCommand(ViewModel, x => x.PushRedPage, x => x.PushPageButton).DisposeWith(disposables);
                 //this.BindCommand(ViewModel, x => x.PushGenericPage, x => x.PushGenericPage).DisposeWith(disposables);
             });
 

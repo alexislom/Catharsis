@@ -26,9 +26,10 @@ namespace CatharsisSampleForms
             Locator
                 .CurrentMutable
                 .RegisterView<MainPage, MainViewModel>()
-                .RegisterView<FirstModalView, FirstModalViewModel>();
-            //.RegisterView<SecondModalView, SecondModalViewModel>()
-            //.RegisterView<RedView, RedViewModel>()
+                .RegisterView<FirstModalView, FirstModalViewModel>()
+                .RegisterView<RedPage, RedPageViewModel>()
+                .RegisterView<SecondModalView, SecondModalViewModel>();
+
             //.RegisterView<GreenView, GreenViewModel>()
             //.RegisterNavigationView(() => new BlueNavigationView())
             //.RegisterViewModel(() => new GreenViewModel(Locator.Current.GetService<IViewStackService>()));

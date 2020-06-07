@@ -9,9 +9,8 @@
              x:TypeArguments="viewModels:MainViewModel"
              mc:Ignorable="d"
              x:Class="CatharsisSampleForms.Views.MainPage">
-    <StackLayout>
+    <StackLayout VerticalOptions="Center">
         <Button x:Name="FirstModalButton" Text="First Modal" />
-        <Label Text="Label 2" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-        <Label Text="Label 3" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <Button x:Name="PushPageButton" Text="Push Red Page" />
     </StackLayout>
 </rxui:ReactiveContentPage>

@@ -1,5 +1,8 @@
-﻿using System.Reactive;
+﻿using System;
+using System.Reactive;
+using System.Reactive.Linq;
 using Catharsis.Navigation.Abstractions;
+using CatharsisSampleForms.Helpers;
 using ReactiveUI;
 
 namespace CatharsisSampleForms.ViewModels
@@ -14,19 +17,19 @@ namespace CatharsisSampleForms.ViewModels
 
         public FirstModalViewModel(INavigationService navigationService) : base(navigationService)
         {
-            //OpenModal = ReactiveCommand
-            //            .CreateFromObservable(() =>
-            //                ViewStackService.PushModal(new SecondModalViewModel(viewStackService)),
-            //                outputScheduler: RxApp.MainThreadScheduler);
+            OpenModal = ReactiveCommand
+                        .CreateFromObservable(() =>
+                            NavigationService.PushModal(new SecondModalViewModel(NavigationService)),
+                            outputScheduler: RxApp.MainThreadScheduler);
 
-            //PopModal = ReactiveCommand
-            //            .CreateFromObservable(() =>
-            //                ViewStackService.PopModal(),
-            //                outputScheduler: RxApp.MainThreadScheduler);
+            PopModal = ReactiveCommand
+                        .CreateFromObservable(() =>
+                            NavigationService.PopModal(),
+                            outputScheduler: RxApp.MainThreadScheduler);
 
-            //OpenModal.Subscribe(x => Debug.WriteLine("PagePushed"));
-            //PopModal.Subscribe(x => Debug.WriteLine("PagePopped"));
-            //PopModal.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());
+            OpenModal.Subscribe(x => System.Diagnostics.Debug.WriteLine("PagePushed"));
+            PopModal.Subscribe(x => System.Diagnostics.Debug.WriteLine("PagePopped"));
+            PopModal.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());
         }
 
 

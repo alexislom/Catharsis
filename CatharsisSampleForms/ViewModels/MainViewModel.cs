@@ -14,6 +14,8 @@ namespace CatharsisSampleForms.ViewModels
 
         public ReactiveCommand<Unit, Unit> OpenFirstModalPage { get; set; }
 
+        public ReactiveCommand<Unit, Unit> PushRedPage { get; set; }
+
         public MainViewModel() : base(Locator.Current.GetService<INavigationService>())
         {
             OpenFirstModalPage = ReactiveCommand
@@ -21,7 +23,13 @@ namespace CatharsisSampleForms.ViewModels
                     NavigationService.PushModal(new FirstModalViewModel(NavigationService)),
                     outputScheduler: RxApp.MainThreadScheduler);
 
+            PushRedPage = ReactiveCommand
+                .CreateFromObservable(() =>
+                    NavigationService.PushPage(new RedPageViewModel(NavigationService)),
+                    outputScheduler: RxApp.MainThreadScheduler);
+
             OpenFirstModalPage.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());
+            PushRedPage.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());
         }
     }
 }
