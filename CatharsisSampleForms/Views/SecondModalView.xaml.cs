@@ -11,7 +11,7 @@ namespace CatharsisSampleForms.Views
         {
             InitializeComponent();
 
-            //this.BindCommand(ViewModel, x => x.PushPage, x => x.PushPage);
+            this.BindCommand(ViewModel, x => x.PushPage, x => x.PushPageButton);
             this.BindCommand(ViewModel, x => x.PopModal, x => x.PopModalButton);
 
             Interactions

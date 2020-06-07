@@ -8,10 +8,10 @@
              x:Class="CatharsisSampleForms.Views.RedPage">
     <ContentPage.Content>
         <StackLayout BackgroundColor="Red">
-            <Button x:Name="PopModal" Text="Pop Modal" TextColor="White"/>
-            <Button x:Name="PushPage" Text="Push Another Red Page" TextColor="White"/>
-            <Button x:Name="PopPage" Text="Pop Page" TextColor="White"/>
-            <Button x:Name="PopToRoot" Text="Pop To Root" TextColor="White"/>
+            <Button x:Name="PopModal" Text="Pop Modal"/>
+            <Button x:Name="PushPage" Text="Push Another Red Page"/>
+            <Button x:Name="PopPage" Text="Pop Page"/>
+            <Button x:Name="PopToRoot" Text="Pop To Root"/>
         </StackLayout>
     </ContentPage.Content>
 </rxui:ReactiveContentPage>

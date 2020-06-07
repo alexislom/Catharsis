@@ -8,7 +8,7 @@ namespace CatharsisSampleForms.ViewModels
 {
     public class RedPageViewModel : BaseViewModel, IViewModel
     {
-        //public ReactiveCommand<Unit, Unit> PopModal { get; set; }
+        public ReactiveCommand<Unit, Unit> PopModal { get; set; }
 
         public ReactiveCommand<Unit, Unit> PushPage { get; set; }
 
@@ -20,10 +20,10 @@ namespace CatharsisSampleForms.ViewModels
 
         public RedPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            //PopModal = ReactiveCommand
-            //    .CreateFromObservable(() =>
-            //        NavigationService.PopModal(),
-            //        outputScheduler: RxApp.MainThreadScheduler);
+            PopModal = ReactiveCommand
+                .CreateFromObservable(() =>
+                    NavigationService.PopModal(),
+                    outputScheduler: RxApp.MainThreadScheduler);
 
             PopPage = ReactiveCommand
                 .CreateFromObservable(() =>
@@ -40,8 +40,8 @@ namespace CatharsisSampleForms.ViewModels
                     NavigationService.PopToRootPage(),
                     outputScheduler: RxApp.MainThreadScheduler);
 
-            //PopModal.Subscribe(x => System.Diagnostics.Debug.WriteLine("PagePushed"));
-            //PopModal.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());
+            PopModal.Subscribe(x => System.Diagnostics.Debug.WriteLine("PagePushed"));
+            PopModal.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());
             PopPage.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());
             PushPage.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());
             PopToRoot.ThrownExceptions.Subscribe(error => Interactions.ErrorMessage.Handle(error).Subscribe());

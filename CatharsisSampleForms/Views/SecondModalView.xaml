@@ -9,7 +9,7 @@
              Title="Second Modal">
     <ContentPage.Content>
         <StackLayout>
-            <!--<Button x:Name="PushPage" Text="Push Page" />-->
+            <Button x:Name="PushPageButton" Text="Push Page" />
             <Button x:Name="PopModalButton" Text="Pop Modal" />
         </StackLayout>
     </ContentPage.Content>
